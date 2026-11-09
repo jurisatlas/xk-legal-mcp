@@ -1,0 +1,28 @@
+[project]
+name = "xk-legal-mcp"
+version = "2.0.0"
+description = "Kosovo Official Legislation, Live National Legal Archive, Multi-Tier Case Law & Citation Verification MCP Server"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "JurisAtlas", email = "noreply@users.noreply.github.com"}]
+keywords = ["mcp", "legal", "law", "caselaw", "legislation", "xk", "kosovo"]
+dependencies = [
+    "fastmcp>=2.10.5",
+    "httpx>=0.28.1",
+    "beautifulsoup4>=4.13.4",
+    "pydantic>=2.11.4",
+    "ddgs>=9.0.0",
+    "primp>=2.0.0",
+    "pypdf>=5.0.0",
+]
+
+[project.scripts]
+xk-legal-mcp = "mcp_server_main:main"
+
+[tool.setuptools]
+py-modules = ["mcp_server_main"]
+
+[build-system]
+requires = ["setuptools>=65.0", "wheel"]
+build-backend = "setuptools.build_meta"
