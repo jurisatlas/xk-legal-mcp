@@ -18,12 +18,12 @@ REPO_NAME = "xk-legal-mcp"
 COUNTRY_NAME = "Kosovo"
 
 CLIENT_SPECS: list[tuple[str, str, bool]] = [
-    ("codex", "ChatGPT Desktop & OpenAI Codex CLI", True),
-    ("claude", "Claude Desktop & Claude Code CLI", True),
-    ("cursor", "Cursor Editor", True),
-    ("windsurf", "Windsurf (Codeium)", True),
-    ("vscode", "VS Code (Copilot / Cline / Roo Code)", True),
-    ("antigravity", "Google Antigravity & Gemini CLI", True),
+    ("codex", "ChatGPT Desktop & OpenAI Codex CLI", False),
+    ("claude", "Claude Desktop & Claude Code CLI", False),
+    ("cursor", "Cursor Editor", False),
+    ("windsurf", "Windsurf (Codeium)", False),
+    ("vscode", "VS Code (Copilot / Cline / Roo Code)", False),
+    ("antigravity", "Google Antigravity & Gemini CLI", False),
     ("continue", "Perplexity / Continue.dev / LM Studio", False),
 ]
 
@@ -237,8 +237,8 @@ def run_gui(script_dir: pathlib.Path, dry_run: bool = False) -> None:
 
     root = tk.Tk()
     root.title(f"JurisAtlas - {COUNTRY_NAME} Legal MCP Setup")
-    root.geometry("580x515")
-    root.minsize(560, 480)
+    root.geometry("610x475")
+    root.minsize(595, 445)
     root.resizable(True, True)
 
     container = ttk.Frame(root, padding=(20, 16, 20, 16))
@@ -408,19 +408,22 @@ def run_cli(script_dir: pathlib.Path, dry_run: bool = False) -> None:
     for idx, (_key, label, _default) in enumerate(CLIENT_SPECS, start=1):
         print(f"  [{idx}] {label}")
     print("  [A] All of the above")
-    raw = input("\nSelect AI application(s) (e.g. 1,2,3 or A for all) [Default: A]: ").strip().lower()
-    if not raw or raw in {"a", "all", "*"}:
-        chosen = [key for key, _, _ in CLIENT_SPECS]
-    else:
+    while True:
+        raw = input("\nSelect AI application(s) (e.g. 1,2,3 or A for all): ").strip().lower()
+        if raw in {"a", "all", "*"}:
+            chosen = [key for key, _, _ in CLIENT_SPECS]
+            break
         tokens = [t.strip() for t in raw.replace(";", ",").split(",") if t.strip()]
-        chosen = [
-            CLIENT_SPECS[int(t) - 1][0]
-            for t in tokens
-            if t.isdigit() and 1 <= int(t) <= len(CLIENT_SPECS)
-        ]
-    if not chosen:
-        print("No valid AI application selected. Exiting.")
-        sys.exit(1)
+        chosen = list(
+            dict.fromkeys(
+                CLIENT_SPECS[int(t) - 1][0]
+                for t in tokens
+                if t.isdigit() and 1 <= int(t) <= len(CLIENT_SPECS)
+            )
+        )
+        if chosen:
+            break
+        print("Please select at least one AI application (1-7 or A for all) before continuing.")
 
     run_installation(
         chosen,

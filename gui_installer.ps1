@@ -47,7 +47,7 @@ $cbCodex.Text = "ChatGPT Desktop & OpenAI Codex CLI"
 $cbCodex.Font = New-Object System.Drawing.Font("Segoe UI", 9.0)
 $cbCodex.Location = New-Object System.Drawing.Point(18, 26)
 $cbCodex.Size = New-Object System.Drawing.Size(235, 24)
-$cbCodex.Checked = $true
+$cbCodex.Checked = $false
 $groupBox.Controls.Add($cbCodex)
 
 $cbClaude = New-Object System.Windows.Forms.CheckBox
@@ -55,7 +55,7 @@ $cbClaude.Text = "Claude Desktop & Claude Code CLI"
 $cbClaude.Font = New-Object System.Drawing.Font("Segoe UI", 9.0)
 $cbClaude.Location = New-Object System.Drawing.Point(265, 26)
 $cbClaude.Size = New-Object System.Drawing.Size(235, 24)
-$cbClaude.Checked = $true
+$cbClaude.Checked = $false
 $groupBox.Controls.Add($cbClaude)
 
 $cbCursor = New-Object System.Windows.Forms.CheckBox
@@ -63,7 +63,7 @@ $cbCursor.Text = "Cursor Editor"
 $cbCursor.Font = New-Object System.Drawing.Font("Segoe UI", 9.0)
 $cbCursor.Location = New-Object System.Drawing.Point(18, 58)
 $cbCursor.Size = New-Object System.Drawing.Size(235, 24)
-$cbCursor.Checked = $true
+$cbCursor.Checked = $false
 $groupBox.Controls.Add($cbCursor)
 
 $cbWindsurf = New-Object System.Windows.Forms.CheckBox
@@ -71,7 +71,7 @@ $cbWindsurf.Text = "Windsurf (Codeium)"
 $cbWindsurf.Font = New-Object System.Drawing.Font("Segoe UI", 9.0)
 $cbWindsurf.Location = New-Object System.Drawing.Point(265, 58)
 $cbWindsurf.Size = New-Object System.Drawing.Size(235, 24)
-$cbWindsurf.Checked = $true
+$cbWindsurf.Checked = $false
 $groupBox.Controls.Add($cbWindsurf)
 
 $cbVSCode = New-Object System.Windows.Forms.CheckBox
@@ -79,7 +79,7 @@ $cbVSCode.Text = "VS Code (Copilot / Cline / Roo Code)"
 $cbVSCode.Font = New-Object System.Drawing.Font("Segoe UI", 9.0)
 $cbVSCode.Location = New-Object System.Drawing.Point(18, 90)
 $cbVSCode.Size = New-Object System.Drawing.Size(235, 24)
-$cbVSCode.Checked = $true
+$cbVSCode.Checked = $false
 $groupBox.Controls.Add($cbVSCode)
 
 $cbAntigravity = New-Object System.Windows.Forms.CheckBox
@@ -87,7 +87,7 @@ $cbAntigravity.Text = "Google Antigravity & Gemini CLI"
 $cbAntigravity.Font = New-Object System.Drawing.Font("Segoe UI", 9.0)
 $cbAntigravity.Location = New-Object System.Drawing.Point(265, 90)
 $cbAntigravity.Size = New-Object System.Drawing.Size(235, 24)
-$cbAntigravity.Checked = $true
+$cbAntigravity.Checked = $false
 $groupBox.Controls.Add($cbAntigravity)
 
 $cbContinue = New-Object System.Windows.Forms.CheckBox
